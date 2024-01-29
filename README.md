@@ -1,2 +1,2 @@
-# ehr-migration-pipeline
-Pipeline to migrate Electronic Health Records programatically
+# EHR Migration Pipeline
+Data pipeline to migrate Electronic Health Records programatically
