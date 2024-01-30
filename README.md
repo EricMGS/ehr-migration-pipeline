@@ -182,10 +182,23 @@ Create a new connection of the type Amazon Web Services and name it **aws_conn**
 Create a new connection of the type Postgres and name it **postgres_conn**. Insert the host and credentials.   
 
 ### Creating definition models
+There are two types of definition models, which are global for all the project: **conversion models** and **import schemas**   
 
-### Creating validation models
+Conversion models are responsible for applying conversion rules to categorized files and transforming them into the target database format. They must have the following structure:  
 
-### Creating categorization and conversion models
+
+Import schemas are responsible for defining the format of the target database tables and which table each file should be imported into. They must have the following structure:   
+
+
+
+### Creating validation schemas
+Validation schemas are similar to import schemas, but their function is to validate whether an input file can be converted using existing models for a given system and version. Each version of a system must have its own models. They must have the following structure:     
+
+
+### Creating categorization models
+Categorization models transform the source data into an intermediate format. Each version of a system must have its own models. They must have the following structure:  
+
+
 
 ### Configuring constants
 The following values must be configured as defined in the DAG code:   
