@@ -34,7 +34,7 @@ This software simplifies EHR data migration with enhanced reliability, making it
 - Postgres  
 
 ## Pipeline tasks
-1. **Get files:** The files of the origin system should be stored in an S3 bucket. This task recover the files from S3 based on the _Migration ID_   
+1. **Get files:** The files of the origin system must be stored in an S3 bucket. This task recover the files from S3 based on the _Migration ID_   
 2. **System identification and file versioning:** The software automatically identifies the source system and file version to ensure compatibility. The version could be informed by the user, or identified automatically.  
 3. **Feasibility testing:** The software performs tests to confirm the viability of the migration. It compares the files with models with rules of integrity like datatype, null, min and max, regex, list of values, etc.
 4. **Data categorization:** The software categorizes the data before conversion to apply centralized rules and maintain database format independence. The categorization transforms the origin files in intermediate files with global standards. The intermediate files are uploaded to S3.
@@ -94,7 +94,7 @@ $ airflow webserver
 ```
 
 ## Directory Tree  
-The project should have the following directory structure:   
+The project must have the following directory structure:   
 
 <pre>
 airflow
@@ -134,7 +134,7 @@ airflow
 
 ## Using
 ### Creating S3 Bucket
-The S3 bucket should have the following directory structure:   
+The S3 bucket must have the following directory structure:   
 <pre>
 migrations
 ├── migration_{MIGRATION_ID}  
@@ -147,15 +147,15 @@ migrations
 </pre>
 
 ### Creating Postgres tables
-The postgres server should have the following tables:   
+The postgres server must have the following tables:   
 - migration_orders
 - patients
 - schedules
 - records
 
 The migration_orders table will contain all migration orders while the patients, schedules and records tables will contain all the imported data.   
-Patients, schedules and records tables could have any desired format, and this formats should be defined in the **definition models**   
-The table migration_orders should have the following data:   
+Patients, schedules and records tables could have any desired format, and this formats must be defined in the **definition models**   
+The table migration_orders must have the following data:   
 ```sql
 order_id integer primary key,
 order_date date,
@@ -188,6 +188,8 @@ Create a new connection of the type Postgres and name it **postgres_conn**. Inse
 ### Creating categorization and conversion models
 
 ### Configuring constants
+The following values must be configured as defined:   
+
 
 
 ### Running
