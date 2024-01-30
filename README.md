@@ -191,8 +191,9 @@ Create a new connection of the type Postgres and name it **postgres_conn**. Inse
 
 
 ### Running
+```
 $ airflow dags trigger ehr-transformation-pipeline --conf '{"order_id":"{ORDER_ID}"}'      
-
+```
 
 ## Troubleshooting
 
