@@ -1,11 +1,11 @@
-# EHR Migration Pipeline
+# The Project: EHR Migration Pipeline
    
  **Data migration pipeline for EHRs, built for enhanced reliability**  
 
 This software is a data migration pipeline for EHRs and related data, like patient records and appointments.   
 It aims to simplify the creation and maintenance of scripts that convert and migrate data between different system standards.  
 
------
+
 The software provides an orchestrated pipeline with the following processes:  
   
 1. **System identification and file versioning:** The software automatically identifies the source system and file version to ensure compatibility.  
@@ -14,8 +14,8 @@ The software provides an orchestrated pipeline with the following processes:
 4. **Data conversion:** The software converts the data using a centralized repository of rules.  
 5. **Data import:** The software imports the converted data into the destination system.  
 
------
-Benefits:  
+
+## Benefits:  
   
 - **Rules-based development:** Define data conversion rules, not code, for easier script creation and maintenance.  
 - **Automatic system and version identification:** Ensures the correct conversion rules are applied.  
@@ -32,6 +32,19 @@ This software simplifies EHR data migration with enhanced reliability, making it
 - Amazon S3  
 - Amazon RDS  
 - Postgres  
+
+## Pipeline tasks
+1. **Get files:** The files of the origin system should be stored in an S3 bucket. This task recover the files from S3 based on the _Migration ID_   
+2. **System identification and file versioning:** The software automatically identifies the source system and file version to ensure compatibility. The version could be informed by the user, or identified automatically.  
+3. **Feasibility testing:** The software performs tests to confirm the viability of the migration. It compares the files with models with rules of integrity like datatype, null, min and max, regex, list of values, etc.
+4. **Data categorization:** The software categorizes the data before conversion to apply centralized rules and maintain database format independence. The categorization transforms the origin files in intermediate files with global standards. The intermediate files are uploaded to S3.
+5. **Data conversion:** The software converts the intermediate files using a centralized repository of rules. The intermediate files provides database independence and centralized maintaince. The converted files are uploaded to S3.
+6. **Import validation:** The software validates the possibility of importing the converted files.
+7. **Data import:** The software imports the converted data into the destination system.  
+
+## Orchestration
+All the tasks are orchestrated by a _Migration Order_. That migration order contains general informations like order id, system, version and informations about the task like date of execution and status.   
+If a task has already been completed successfully, the orchestrator will jump to the next pending step.
 
 ## Installation
 ### Using Docker
@@ -121,19 +134,61 @@ airflow
 
 ## Using
 ### Creating S3 Bucket
-
+The S3 bucket should have the following directory structure:   
+<pre>
+migrations
+├── migration_{MIGRATION_ID}  
+│   ├── input_files               The origin files goes here
+│   ├── categorized_files
+│   └── converted_files
+├── migration_{MIGRATION_ID}
+|   ├── ...
+...
+</pre>
 
 ### Creating Postgres tables
+The postgres server should have the following tables:   
+- migration_orders
+- patients
+- schedules
+- records
+
+The migration_orders table will contain all migration orders while the patients, schedules and records tables will contain the application data where the imports will be made.   
+Patients, schedules and records tables could have any desired format, and this formats should be defined in the **definition models**   
+The table migration_orders should have the following data:   
+```sql
+order_id integer primary key,
+order_date date,
+order_system varchar(30),
+order_version varchar(10),
+pre_validation_date date,
+pre_validation_status bool,
+categorization_date date,
+categorization_status bool,
+conversion_date date,
+conversion_status bool,
+post_validation_date date,
+post_validation_status bool,
+import_date date,
+import_status bool
+```
 
 
 ### Creating connections
-Gere chaves de acesso em AWS -> Security Credentials -> Chaves de Acesso -> Criar chave de acesso  
-Access http://localhost:8080  
-Login with the created user  
-Crie uma conexao pelo airflow webserver de tipo: Amazon Web Services e nome: aws_conn. Copie e cole as chaves de acesso  
-Crie uma conexao pelo airflow webserver de tipo: Postgres e nome: postgres_conn. Insira as informacoes de acesso ao servidor Postgres  
+Generate AWS access keys in: Security Credentials -> Access keys -> Generate access key   
+Access airflow webserver: http://localhost:8080  
+Login with the created user (user: airflow, password: airflow)   
+Create a new connection of the type Amazon Web Services and name it **aws_conn**. Paste the access keys.   
+Create a new connection of the type Postgres and name it **postgres_conn**. Insert the host and credentials.   
 
-### Creating models
+### Creating definition models
+
+### Creating validation models
+
+### Creating categorization and conversion models
+
+### Configuring constants
+
 
 ### Running
 $ airflow dags trigger ehr-transformation-pipeline --conf '{"order_id":"{ORDER_ID}"}'      
