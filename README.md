@@ -188,8 +188,14 @@ Create a new connection of the type Postgres and name it **postgres_conn**. Inse
 ### Creating categorization and conversion models
 
 ### Configuring constants
-The following values must be configured as defined:   
-
+The following values must be configured as defined in the DAG code:   
+- AIRFLOW_HOME: path where airflow was installed
+- AWS_CONNECTOR: name of the created aws connector
+- POSTGRES_CONNECTOR: name of the created postgres connector
+- BUCKET_NAME: name of the created S3 bucket
+- S3_MIGRATION_PATH: files path of a migration
+- S3_CATEGORIZED_PATH: path where categorized files should be uploaded
+- S3_CONVERTED_PATH: path where converted files should be uploaded
 
 
 ### Running
