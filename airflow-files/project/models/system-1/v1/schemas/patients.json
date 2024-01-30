@@ -1,0 +1,88 @@
+{
+    "name": "system-1/v1/patients",
+    "description": "system-1/v1 patients schema",
+    "filename": {
+      "regex": "patients.csv"
+    },
+    "columns": [
+        {
+            "type": "string",
+            "name": "name",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "address",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "email",
+            "required": true,
+            "null_or_empty": false,
+            "regex": "^(.+@.+\\..+)",
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "phone",
+            "required": true,
+            "null_or_empty": false,
+            "regex": "^[0-9]{3}-[0-9]{3}-[0-9]{4}$",
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "phone 2",
+            "required": true,
+            "null_or_empty": false,
+            "regex": "^[0-9]{3}-[0-9]{3}-[0-9]{4}$",
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "phone 3",
+            "required": true,
+            "null_or_empty": false,
+            "regex": "^[0-9]{3}-[0-9]{3}-[0-9]{4}$",
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "birth date",
+            "required": true,
+            "null_or_empty": false,
+            "regex": "^[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}$",
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "integer",
+            "name": "country",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": 1,
+            "max": 100
+          },
+          {
+            "type": "enum",
+            "name": "gender",
+            "required": true,
+            "null_or_empty": false,
+            "values": ["m","f","o"]
+          }
+    ]
+  }

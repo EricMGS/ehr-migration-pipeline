@@ -1,0 +1,14 @@
+{
+    "Definitions": {
+        "model_type": "patient",
+        "target_file": "patients.csv"
+    },
+    "Categorization": {
+        "fullname": "origin['name']",
+        "address": "origin['address']",
+        "phone": "origin['phone'] + ';' + origin['phone 2'] + ';' + origin['phone 3']",
+        "birth_date": "origin['birth date']",
+        "country": "origin['country']",
+        "gender": "origin['gender']"
+    }
+}

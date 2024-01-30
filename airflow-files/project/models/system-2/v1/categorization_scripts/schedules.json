@@ -1,0 +1,9 @@
+{
+    "Definitions": {
+        "model_type": "patient",
+        "target_file": "patients.csv"
+    },
+    "Categorization": {
+
+    }
+}

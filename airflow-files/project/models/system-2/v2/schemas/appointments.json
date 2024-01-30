@@ -1,0 +1,55 @@
+{
+    "name": "system-2/v2/appointments",
+    "description": "system-2/v2 appointments schema",
+    "filename": {
+      "regex": "appointments.csv"
+    },
+    "columns": [
+        {
+            "type": "integer",
+            "name": "id",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "integer",
+            "name": "client_id",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "date",
+            "required": true,
+            "null_or_empty": false,
+            "regex": "^[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}$",
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "decimal",
+            "name": "value",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": null,
+            "max": null,
+            "precision": null
+          }
+    ]
+  }

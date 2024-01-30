@@ -1,0 +1,14 @@
+{
+    "Definitions": {
+        "model_type": "schedules",
+        "target_file": "schedules.csv"
+    },
+    "Categorization": {
+        "schedule_id": "origin['schedule_id']",
+        "patient": "origin['patient_id']",
+        "date": "origin['date']",
+        "time": "origin['time']",
+        "status": "origin['status']",
+        "text": "origin['procedure']"
+    }
+}

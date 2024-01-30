@@ -1,0 +1,61 @@
+{
+    "name": "system-1/v2/schedules",
+    "description": "system-1/v2 schedules schema",
+    "filename": {
+      "regex": "schedules.csv"
+    },
+    "columns": [
+        {
+            "type": "integer",
+            "name": "schedule_id",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "integer",
+            "name": "patient_id",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "date",
+            "required": true,
+            "null_or_empty": false,
+            "regex": "^[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}$",
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "time",
+            "required": true,
+            "null_or_empty": false,
+            "regex": "^[0-9]{1,2}:[0-9]{1,2} [AP]M$",
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "procedure",
+            "required": true,
+            "null_or_empty": true,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "enum",
+            "name": "status",
+            "required": true,
+            "null_or_empty": false,
+            "values": ["cp","sc","ca","re"]
+          }
+    ]
+  }

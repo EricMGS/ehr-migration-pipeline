@@ -1,0 +1,13 @@
+{
+    "Definitions": {
+        "model_type": "records",
+        "target_file": "records.csv"
+    },
+    "Conversion": {
+        "id": "origin['record_id']",
+        "patient": "origin['patient']",
+        "date": "origin['date']",
+        "subtext": "origin['subtext']",
+        "text": "origin['text']"
+    }
+}

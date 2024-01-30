@@ -1,0 +1,54 @@
+{
+    "name": "system-1/v2/records",
+    "description": "system-1/v2 records schema",
+    "filename": {
+      "regex": "records.csv"
+    },
+    "columns": [
+        {
+            "type": "integer",
+            "name": "record_id",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "integer",
+            "name": "patient_id",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "date",
+            "required": true,
+            "null_or_empty": false,
+            "regex": "^[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}$",
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "text",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": null,
+            "max": null
+          }
+    ]
+  }

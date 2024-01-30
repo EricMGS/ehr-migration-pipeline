@@ -1,0 +1,64 @@
+{
+    "name": "schedules",
+    "description": "schedules table csv-schema",
+    "filename": {
+      "regex": "schedules.csv"
+    },
+    "columns": [
+        {
+            "type": "string",
+            "name": "id",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "patient",
+            "required": true,
+            "null_or_empty": true,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "date",
+            "required": true,
+            "null_or_empty": true,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "time",
+            "required": true,
+            "null_or_empty": true,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "status",
+            "required": true,
+            "null_or_empty": true,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "text",
+            "required": true,
+            "null_or_empty": true,
+            "regex": null,
+            "min": null,
+            "max": null
+          }
+        
+    ]
+  }

@@ -1,0 +1,54 @@
+{
+    "name": "records",
+    "description": "records table csv-schema",
+    "filename": {
+      "regex": "records.csv"
+    },
+    "columns": [
+        {
+            "type": "string",
+            "name": "id",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "patient",
+            "required": true,
+            "null_or_empty": true,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "date",
+            "required": true,
+            "null_or_empty": true,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "subtext",
+            "required": true,
+            "null_or_empty": true,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "text",
+            "required": true,
+            "null_or_empty": true,
+            "regex": null,
+            "min": null,
+            "max": null
+          }
+    ]
+  }

@@ -1,0 +1,13 @@
+{
+    "Definitions": {
+        "model_type": "records",
+        "target_file": "records.csv"
+    },
+    "Categorization": {
+        "record_id": "origin['record_id']",
+        "patient": "origin['patient_id']",
+        "date": "origin['date']",
+        "subtext": "origin['date']",
+        "text": "origin['text']"
+    }
+}

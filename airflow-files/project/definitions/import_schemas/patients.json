@@ -1,0 +1,64 @@
+{
+    "name": "patients",
+    "description": "patients table csv-schema",
+    "filename": {
+      "regex": "patients.csv"
+    },
+    "columns": [
+        {
+            "type": "string",
+            "name": "fullname",
+            "required": true,
+            "null_or_empty": false,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "address",
+            "required": true,
+            "null_or_empty": true,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "phone",
+            "required": true,
+            "null_or_empty": true,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "birth_date",
+            "required": true,
+            "null_or_empty": true,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "country",
+            "required": true,
+            "null_or_empty": true,
+            "regex": null,
+            "min": null,
+            "max": null
+          },
+          {
+            "type": "string",
+            "name": "gender",
+            "required": true,
+            "null_or_empty": true,
+            "regex": null,
+            "min": null,
+            "max": null
+          }
+        
+    ]
+  }
