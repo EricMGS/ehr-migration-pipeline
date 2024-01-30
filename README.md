@@ -153,7 +153,7 @@ The postgres server should have the following tables:
 - schedules
 - records
 
-The migration_orders table will contain all migration orders while the patients, schedules and records tables will contain the application data where the imports will be made.   
+The migration_orders table will contain all migration orders while the patients, schedules and records tables will contain all the imported data.   
 Patients, schedules and records tables could have any desired format, and this formats should be defined in the **definition models**   
 The table migration_orders should have the following data:   
 ```sql
