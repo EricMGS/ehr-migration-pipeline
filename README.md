@@ -1,8 +1,8 @@
 # The Project: EHR Migration Pipeline
    
- **Data migration pipeline for EHRs, built for enhanced reliability**  
+ **Data migration pipeline for EHRs, designed to ensure data integrity**  
 
-This software is a data migration pipeline for EHRs and related data, like patient records and appointments.   
+This software is a data migration pipeline for EHR systems, which migrate data like patients, records and appointments.   
 It aims to simplify the creation and maintenance of scripts that convert and migrate data between different system standards.  
 
 
@@ -12,18 +12,18 @@ The software provides an orchestrated pipeline with the following processes:
 2. **Feasibility testing:** The software performs tests to confirm the viability of the migration.  
 3. **Data categorization:** The software categorizes the data before conversion to apply centralized rules and maintain database format independence.  
 4. **Data conversion:** The software converts the data using a centralized repository of rules.  
-5. **Data import:** The software imports the converted data into the destination system.  
+5. **Data import:** The software imports the converted data into the destination system and verifies its accuracy against the source.
 
 
 ## Benefits:  
   
-- **Rules-based development:** Define data conversion rules, not code, for easier script creation and maintenance.  
-- **Automatic system and version identification:** Ensures the correct conversion rules are applied.  
-- **Increased flexibility:** Migrate data from various systems.  
-- **Improved accuracy:** Data validation features minimize errors.  
-- **Centralized maintenance:** Easily manage and update conversion rules.  
-- **Destination database format independence:** Centrally maintain rules regardless of database format changes.  
-- **Scale and Extensibility:** Migrate data from a wide range of EHR and related systems.  
+- **Rules-based development:** Define rules for data conversion, not code, for easier script creation and maintenance.  
+- **Automatic system and version identification:** Ensures that the correct conversion rules are applied.  
+- **Increased flexibility:** Supports migration from various systems.  
+- **Improved accuracy:** Data validation helps to minimize errors.
+- **Centralized maintenance:** Centralized management and updating of conversion rules.
+- **Destination database format independence:** Rules are maintained centrally, regardless of database format changes.
+- **Scale and Extensibility:** Supports migration from a wide range of EHR and related systems.
     
 This software simplifies EHR data migration with enhanced reliability, making it a valuable tool for organizations navigating complex data transfer.  
    
@@ -34,16 +34,16 @@ This software simplifies EHR data migration with enhanced reliability, making it
 - Postgres  
 
 ## Pipeline tasks
-1. **Get files:** The files of the origin system must be stored in an S3 bucket. This task recover the files from S3 based on the _Migration ID_   
-2. **System identification and file versioning:** The software automatically identifies the source system and file version to ensure compatibility. The version could be informed by the user, or identified automatically.  
+1. **Get files:** The files of the origin system must be stored in an S3 bucket. This task recovers the files from S3 based on the _Migration ID_   
+2. **System identification and file versioning:** The software automatically identifies the source system and file version to ensure compatibility. The version could be informed by the user, or it could be identified automatically.  
 3. **Feasibility testing:** The software performs tests to confirm the viability of the migration. It compares the files with models with rules of integrity like datatype, null, min and max, regex, list of values, etc.
-4. **Data categorization:** The software categorizes the data before conversion to apply centralized rules and maintain database format independence. The categorization transforms the origin files in intermediate files with global standards. The intermediate files are uploaded to S3.
-5. **Data conversion:** The software converts the intermediate files using a centralized repository of rules. The intermediate files provides database independence and centralized maintaince. The converted files are uploaded to S3.
-6. **Import validation:** The software validates the possibility of importing the converted files.
+4. **Data categorization:** The software categorizes the data before conversion to apply centralized rules and maintain database format independence. The categorization transforms the origin files into intermediate files with global standards. The intermediate files are uploaded to S3.
+5. **Data conversion:** The software converts the intermediate files using a centralized repository of rules. The intermediate files provide database independence and centralized maintenance. The converted files are uploaded to S3.
+6. **Import validation:** The software validates the converted files for importability.  
 7. **Data import:** The software imports the converted data into the destination system.  
 
 ## Orchestration
-All the tasks are orchestrated by a _Migration Order_. That migration order contains general informations like order id, system, version and informations about the task like date of execution and status.   
+All the tasks are orchestrated by a _Migration Order_. That migration order contains general information like order id, system, version and information about the task like date of execution and status.   
 If a task has already been completed successfully, the orchestrator will jump to the next pending step.
 
 ## Installation
@@ -154,8 +154,8 @@ The postgres server must have the following tables:
 - records
 
 The migration_orders table will contain all migration orders while the patients, schedules and records tables will contain all the imported data.   
-Patients, schedules and records tables could have any desired format, and this formats must be defined in the **definition models**   
-The table migration_orders must have the following data:   
+Patients, schedules and records tables could have any desired format, but must be specified in the **definition models**   
+The migration_orders table must have the following data:   
 ```sql
 order_id integer primary key,
 order_date date,
