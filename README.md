@@ -2,7 +2,7 @@
    
  **Data migration pipeline for EHRs, designed to ensure data integrity**  
 
-This software is a data migration pipeline for EHR systems, which migrate data like patients, records and appointments.   
+This software is a data migration pipeline for EHR systems, that migrate data like patients, records and appointments.   
 It aims to simplify the creation and maintenance of scripts that convert and migrate data between different system standards.  
 
 
@@ -216,5 +216,8 @@ The following values must be configured as defined in the DAG code:
 $ airflow dags trigger ehr-transformation-pipeline --conf '{"order_id":"{ORDER_ID}"}'      
 ```
 
-## Troubleshooting
+### Logs
+
+
+## Limitations
 
