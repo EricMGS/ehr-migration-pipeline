@@ -1,3 +1,5 @@
+# The Project: EHR Migration Pipeline
+
 **Data migration pipeline for EHRs, designed to ensure data integrity**  
 
 This software is a data migration pipeline for EHR systems, that migrate data like patients, records and appointments.   
