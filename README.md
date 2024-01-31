@@ -1,6 +1,4 @@
-# The Project: EHR Migration Pipeline
-   
- **Data migration pipeline for EHRs, designed to ensure data integrity**  
+**Data migration pipeline for EHRs, designed to ensure data integrity**  
 
 This software is a data migration pipeline for EHR systems, that migrate data like patients, records and appointments.   
 It aims to simplify the creation and maintenance of scripts that convert and migrate data between different system standards.  
@@ -184,20 +182,33 @@ Create a new connection of the type Postgres and name it **postgres_conn**. Inse
 ### Creating definition models
 There are two types of definition models, which are global for all the project: **conversion models** and **import schemas**   
 
-Conversion models are responsible for applying conversion rules to categorized files and transforming them into the target database format. They must have the following structure:  
+#### Conversion models 
+Are responsible for applying conversion rules to categorized files and transforming them into the target database format. They must have the following structure:  
+![image](https://github.com/EricMGS/ehr-migration-pipeline/assets/37462627/afc37479-870c-4a1d-95e4-2bade8f0cd08)   
+
+- *model_type:* Which type of data will be converted   
+- *target_file:* Name of the file that will be converted   
+- *Conversion section:* Here are the names of all columns in the input file and their respective conversion rules. The rules could be any python/pandas commands using origin[name of the column]   
 
 
-Import schemas are responsible for defining the format of the target database tables and which table each file should be imported into. They must have the following structure:   
 
+#### Import schemas 
+Are responsible for defining the format of the target database tables and which table each file should be imported into. They must have the following structure:   
+![image](https://github.com/EricMGS/ehr-migration-pipeline/assets/37462627/8c108bce-1a46-4fd9-b697-8358d8300085)
+
+Must follow the [csv-schema python library](https://pypi.org/project/csv-schema/) definitions   
 
 
 ### Creating validation schemas
 Validation schemas are similar to import schemas, but their function is to validate whether an input file can be converted using existing models for a given system and version. Each version of a system must have its own models. They must have the following structure:     
+![image](https://github.com/EricMGS/ehr-migration-pipeline/assets/37462627/bc767bf7-47cf-4de4-81af-f7257b344ba1)   
+
+Must follow the [csv-schema python library](https://pypi.org/project/csv-schema/) definitions   
 
 
 ### Creating categorization models
-Categorization models transform the source data into an intermediate format. Each version of a system must have its own models. They must have the following structure:  
-
+Categorization models transform the source data into an intermediate format. Each version of a system must have its own models. They must have the same structure as the conversion models:  
+![image](https://github.com/EricMGS/ehr-migration-pipeline/assets/37462627/984f8105-1e7f-42dd-b769-c89405d43a10)   
 
 
 ### Configuring constants
