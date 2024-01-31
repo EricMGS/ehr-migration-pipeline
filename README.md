@@ -233,4 +233,12 @@ $ airflow dags trigger ehr-transformation-pipeline --conf '{"order_id":"{ORDER_I
 
 
 ## Limitations
-
+- It is still a beta version and should not be used in production
+- Input files must be in csv format, utf-8 encoding and separated by commas
+- Converts only medical records, patient records and appointment files
+- Does not adapt rules automatically
+- Must be adjusted to meet LGPD standards
+- There is no separation of imported records with existing ones
+- Parallelism is not used
+- Not optimized for big data
+- There are no rollback mechanisms yet
