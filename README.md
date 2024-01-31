@@ -250,3 +250,4 @@ Within the log folder, some files are generated to assist in adjusting the model
 - Parallelism is not used
 - Not optimized for big data
 - There are no rollback mechanisms yet
+- Input files must be processed, with all necessary filters and joins
