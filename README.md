@@ -230,7 +230,14 @@ $ airflow dags trigger ehr-transformation-pipeline --conf '{"order_id":"{ORDER_I
 ```
 
 ### Logs
-
+Within the log folder, some files are generated to assist in adjusting the modeling:   
+- **csv_schema_validation.log:** provides information about testing with each version, how many errors were in each file and if there was a chosen version
+- **csv_schema_validation_detailed.log:** the same as above but with detailed error information
+- **categorization.log:** indicates whether the input files were found and whether they could be categorized
+- **conversion.log:** indicates whether the categorized files were found and whether they could be converted
+- **import_validation.log:** provides information about testing with converted files and how many errors were in each file
+- **import_validation_detailed.log:** the same as above but with detailed error information
+- **import.log:** indicates whether the converted files were found and whether they could be imported
 
 ## Limitations
 - It is still a beta version and should not be used in production
