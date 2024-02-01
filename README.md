@@ -47,9 +47,6 @@ All the tasks are orchestrated by a _Migration Order_. That migration order cont
 If a task has already been completed successfully, the orchestrator will jump to the next pending step.
 
 ## Installation
-### Using Docker
-
-
 ### From zero (tested on Ubuntu 22.04.3 LTS)
 1. Install initial packages and create a postgres user:    
 ```
